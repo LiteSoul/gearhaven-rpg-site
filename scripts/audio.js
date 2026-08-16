@@ -7,10 +7,28 @@ class RetroAudioEngine {
   constructor() {
     this.ctx = null;
     this.masterGain = null;
-    this.isMuted = true; // start muted per browser autoplay policy
+    this.isMuted = false; // Audio ON by default
     this.bgmPlaying = false;
     this.bgmInterval = null;
     this.melodyStep = 0;
+    this.unlocked = false;
+
+    // Attach auto-unlock listener on first user interaction
+    const unlockHandler = () => {
+      if (this.unlocked) return;
+      this.init();
+      if (!this.isMuted && !this.bgmPlaying) {
+        this.startBGM();
+      }
+      this.unlocked = true;
+      ['click', 'pointerdown', 'keydown', 'touchstart'].forEach(evt => {
+        window.removeEventListener(evt, unlockHandler);
+      });
+    };
+
+    ['click', 'pointerdown', 'keydown', 'touchstart'].forEach(evt => {
+      window.addEventListener(evt, unlockHandler, { once: true });
+    });
   }
 
   init() {

@@ -48,8 +48,8 @@
 
       <!-- Utility Toggles & Actions -->
       <div class="header-actions">
-        <button id="audio-toggle-btn" class="utility-btn" title="Toggle Web Audio Synthesizer">
-          🔇 <span>AUDIO: OFF</span>
+        <button id="audio-toggle-btn" class="utility-btn active" title="Toggle Web Audio Synthesizer">
+          🔊 <span>AUDIO: ON</span>
         </button>
         <button id="crt-toggle-btn" class="utility-btn" title="Toggle CRT Scanline Phosphor Filter">
           📺 <span>CRT FX</span>
@@ -104,12 +104,31 @@
             </div>
           </div>
 
-          <!-- Hero Pixel Art Visual -->
+          <!-- Hero Video Preview Visual -->
           <div class="hero-visual">
-            <div class="hero-art-frame pixel-art">
-              <img src="assets/images/hero_key_art.jpg" alt="Gearhaven: Skyward Bound Official Key Art - Sprocket overlooking the Steampunk Metropolis">
-              <div class="hero-art-overlay-tag">
-                KEY ART • THE SKYWARD ASCENT
+            <div class="hero-art-frame pixel-art hero-video-frame" id="hero-video-container">
+              <video id="hero-preview-video" autoplay loop muted playsinline poster="assets/images/hero_key_art.jpg">
+                <source src="assets/videos/hero_preview.mp4" type="video/mp4">
+                <source src="assets/videos/hero_preview.webm" type="video/webm">
+                <img src="assets/images/hero_key_art.jpg" alt="Gearhaven: Skyward Bound Hero Key Art">
+              </video>
+
+              <!-- Video Overlay Badges -->
+              <div class="video-overlay-header">
+                <span class="video-rec-badge">
+                  <span class="rec-dot"></span> LIVE GAMEPLAY TEASER
+                </span>
+                <span class="video-duration-badge">0:10 LOOP</span>
+              </div>
+
+              <!-- Video Overlay Controls -->
+              <div class="video-controls-bar">
+                <button id="video-sound-btn" class="video-ctrl-btn" title="Toggle Video Soundtrack">
+                  🔇 <span>TEASER AUDIO: OFF</span>
+                </button>
+                <button id="video-play-btn" class="video-ctrl-btn" title="Pause/Play Video Preview">
+                  ⏸️ <span>PAUSE</span>
+                </button>
               </div>
             </div>
           </div>

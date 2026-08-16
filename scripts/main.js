@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWishlistCounter();
   initNewsletterForm();
   initAudioAndCRTControls();
+  initHeroVideoControls();
 
   // Initialize Subsystems
   if (window.combatDemo) window.combatDemo.init();
@@ -429,6 +430,43 @@ function initAudioAndCRTControls() {
       document.body.classList.toggle('crt-mode');
       const isCRT = document.body.classList.contains('crt-mode');
       crtBtn.classList.toggle('active', isCRT);
+      if (window.retroAudio) window.retroAudio.playBlip();
+    });
+  }
+}
+
+// --- Hero Video Preview Player Controls ---
+function initHeroVideoControls() {
+  const video = document.getElementById('hero-preview-video');
+  const soundBtn = document.getElementById('video-sound-btn');
+  const playBtn = document.getElementById('video-play-btn');
+
+  if (!video) return;
+
+  if (soundBtn) {
+    soundBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (!video.muted) {
+        video.volume = 0.5;
+        soundBtn.innerHTML = '🔊 <span>TEASER AUDIO: ON</span>';
+        soundBtn.classList.add('active');
+      } else {
+        soundBtn.innerHTML = '🔇 <span>TEASER AUDIO: OFF</span>';
+        soundBtn.classList.remove('active');
+      }
+      if (window.retroAudio) window.retroAudio.playBlip();
+    });
+  }
+
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playBtn.innerHTML = '⏸️ <span>PAUSE</span>';
+      } else {
+        video.pause();
+        playBtn.innerHTML = '▶️ <span>PLAY</span>';
+      }
       if (window.retroAudio) window.retroAudio.playBlip();
     });
   }
