@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gearhaven: Skyward Bound | Official 2D Steampunk JRPG</title>
+  <meta name="description" content="Official website for Gearhaven: Skyward Bound — a 16-bit 2D Steampunk Action RPG inspired by Osamu Tezuka retro-futuristic androids. Forged of brass, gears, and celestial starlight.">
+  <meta name="keywords" content="2D RPG, Pixel Art, Steampunk, Osamu Tezuka, Retro Android, JRPG, Indie Game">
+
+  <!-- Favicon / Web App Meta -->
+  <meta name="theme-color" content="#0a0c10">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pixel-ui.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+  <!-- Floating Particle Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Global Header Navigation -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" id="nav-brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">GEARHAVEN</span>
+          <span class="brand-sub">SKYWARD BOUND</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#overview" class="nav-link">Overview</a></li>
+        <li><a href="#features" class="nav-link">Pillars</a></li>
+        <li><a href="#characters" class="nav-link">Android Roster</a></li>
+        <li><a href="#combat-demo" class="nav-link">Combat Simulator</a></li>
+        <li><a href="#world-map" class="nav-link">World Atlas</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+      </ul>
+
+      <!-- Utility Toggles & Actions -->
+      <div class="header-actions">
+        <button id="audio-toggle-btn" class="utility-btn" title="Toggle Web Audio Synthesizer">
+          🔇 <span>AUDIO: OFF</span>
+        </button>
+        <button id="crt-toggle-btn" class="utility-btn" title="Toggle CRT Scanline Phosphor Filter">
+          📺 <span>CRT FX</span>
+        </button>
+        <button id="mobile-nav-toggle" class="mobile-toggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="section hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge-wrap">
+              <span class="hero-badge">
+                <span class="tag-dot"></span> COMING Q4 2026
+              </span>
+              <span class="hero-badge">
+                ⚙️ 16-BIT HD-2D RPG
+              </span>
+            </div>
+            
+            <h1 class="hero-title">
+              FORGED OF BRASS.<br>
+              PULSING WITH<br>
+              <span class="title-accent">STARLIGHT HEARTS.</span>
+            </h1>
+
+            <p class="hero-desc">
+              Embark on a grand retro-futuristic journey across floating clockwork metropolises. Join <strong>Sprocket</strong> and a party of sentient Osamu Tezuka inspired androids as they unravel the ancient mystery behind the failing engines of <em>Gearhaven</em>.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#wishlist" class="pixel-btn" id="hero-wishlist-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                WISHLIST ON STEAM
+              </a>
+              <a href="#combat-demo" class="pixel-btn pixel-btn-cyan" id="hero-demo-btn">
+                ⚔️ PLAY BATTLE SIM
+              </a>
+            </div>
+
+            <div class="wishlist-meta">
+              <span class="wishlist-count-badge" id="wishlist-count">48,290</span>
+              <span>Adventurers have wishlisted on Steam & Epic</span>
+            </div>
+          </div>
+
+          <!-- Hero Pixel Art Visual -->
+          <div class="hero-visual">
+            <div class="hero-art-frame pixel-art">
+              <img src="assets/images/hero_key_art.jpg" alt="Gearhaven: Skyward Bound Official Key Art - Sprocket overlooking the Steampunk Metropolis">
+              <div class="hero-art-overlay-tag">
+                KEY ART • THE SKYWARD ASCENT
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Specs Ribbon -->
+        <div class="specs-ribbon">
+          <div class="spec-item">
+            <span class="spec-label">GENRE</span>
+            <span class="spec-value">Steampunk Action JRPG</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">ART DIRECTION</span>
+            <span class="spec-value">16-Bit Tezuka Androids</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">AUDIO ENGINE</span>
+            <span class="spec-value">Live 16-Bit Chiptune Synth</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">TARGET PLATFORMS</span>
+            <span class="spec-value">PC, Steam Deck, Switch, PS5</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW & STORY LORE SECTION -->
+    <section class="section lore-section" id="overview">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span> WORLD CHRONICLES
+          </div>
+          <h2 class="section-title">THE SUSPENDED <span class="highlight">METROPOLIS</span></h2>
+          <p class="section-subtitle">
+            Suspended above the endless cloud ocean, seven grand clockwork districts drift upon titanic steam thrusters. But deep below, the Prime Engine has begun to falter.
+          </p>
+        </div>
+
+        <div class="lore-container">
+          <div class="lore-tabs">
+            <button class="lore-tab-btn active" data-tab="cataclysm">
+              <span>01.</span> The Great Chrono-Tear
+            </button>
+            <button class="lore-tab-btn" data-tab="cores">
+              <span>02.</span> The Starlight Cores
+            </button>
+            <button class="lore-tab-btn" data-tab="titan">
+              <span>03.</span> The Void Machine Menace
+            </button>
+          </div>
+
+          <div class="lore-content-panel">
+            <h3 id="lore-panel-title">The Great Chrono-Tear & The Skyward Ascent</h3>
+            <p id="lore-panel-desc">
+              Three centuries ago, the world below cracked under the weight of runaway seismic fissures. To save civilization, humanity and early clockwork automatons built giant steam-lift anchors, hoisting seven grand metropolis districts into the endless clouds. Thus, Gearhaven was born — suspended between the sun and the golden sunset haze.
+            </p>
+            <p class="lore-quote" id="lore-panel-quote">
+              "We left the broken earth behind, but the ticking of time never ceases."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE GAMEPLAY PILLARS -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span> GAMEPLAY PILLARS
+          </div>
+          <h2 class="section-title">REVOLUTIONARY <span class="highlight">CLOCKWORK</span> MECHANICS</h2>
+          <p class="section-subtitle">
+            A fusion of classic 90s golden-age JRPGs, modern dynamic lighting, and innovative steam pressure tactics.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar 1 -->
+          <div class="pillar-card">
+            <div class="pillar-icon-box">🤖</div>
+            <h3 class="pillar-title">Tezuka Android Synergy</h3>
+            <p class="pillar-desc">
+              Harness emotional resonance between party androids. Link emotion-cores in combat to trigger cinematic multi-hero combo abilities and Overclock overdrive bursts.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-card">
+            <div class="pillar-icon-box">⚡</div>
+            <h3 class="pillar-title">Dynamic Steam-Pressure Combat</h3>
+            <p class="pillar-desc">
+              Manage real-time steam gauges and pressure valves. Vent excess heat for explosive damage or supercharge Tesla coils for chain-lightning elemental reactions.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-card">
+            <div class="pillar-icon-box">🏙️</div>
+            <h3 class="pillar-title">Living Clockwork City</h3>
+            <p class="pillar-desc">
+              Explore bustling brass plazas, ride elevated steam cable trams, deliver urgent pneumatic canisters, and converse with over 200 quirky automaton citizens.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="pillar-card">
+            <div class="pillar-icon-box">🔧</div>
+            <h3 class="pillar-title">Relic & Cog Synthesis</h3>
+            <p class="pillar-desc">
+              Forge custom gear armaments, upgrade rocket boot thrusters, calibrate vacuum-tube amplifiers, and dismantle fallen titans for rare celestial cogwheels.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CHARACTER ROSTER -->
+    <section class="section" id="characters" style="background: rgba(18, 22, 32, 0.5);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span> PARTY ROSTER
+          </div>
+          <h2 class="section-title">SENTIENT <span class="highlight">AUTOMATONS</span></h2>
+          <p class="section-subtitle">
+            Meet the courageous android party members journeying to save the floating metropolis.
+          </p>
+        </div>
+
+        <div class="roster-wrapper">
+          <!-- Left: Character Selector List -->
+          <div class="roster-list">
+            <div class="roster-card-nav active" data-char="sprocket">
+              <div class="roster-nav-thumb pixel-art">
+                <img src="assets/images/hero_sprocket.jpg" alt="Sprocket Thumbnail">
+              </div>
+              <div class="roster-nav-info">
+                <span class="roster-nav-name">SPROCKET</span>
+                <span class="roster-nav-role">Spellblade • Model Atom-7</span>
+              </div>
+            </div>
+
+            <div class="roster-card-nav" data-char="electra">
+              <div class="roster-nav-thumb pixel-art">
+                <img src="assets/images/hero_electra.jpg" alt="Electra Thumbnail">
+              </div>
+              <div class="roster-nav-info">
+                <span class="roster-nav-name">ELECTRA</span>
+                <span class="roster-nav-role">Tesla Mage • Model Volt-9</span>
+              </div>
+            </div>
+
+            <div class="roster-card-nav" data-char="prof_gear">
+              <div class="roster-nav-thumb pixel-art">
+                <img src="assets/images/hero_prof_gear.jpg" alt="Prof. Gear Thumbnail">
+              </div>
+              <div class="roster-nav-info">
+                <span class="roster-nav-name">PROF. GEAR</span>
+                <span class="roster-nav-role">Artificer • Cyber-Scholar</span>
+              </div>
+            </div>
+
+            <div class="roster-card-nav" data-char="baron">
+              <div class="roster-nav-thumb pixel-art">
+                <img src="assets/images/hero_baron.jpg" alt="Baron Boilerplate Thumbnail">
+              </div>
+              <div class="roster-nav-info">
+                <span class="roster-nav-name">BARON BOILERPLATE</span>
+                <span class="roster-nav-role">Ironclad Sentinel • Titan-01</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Selected Character Display Panel -->
+          <div class="roster-detail-panel" id="roster-detail-panel">
+            <div class="char-portrait-box">
+              <div class="char-img-frame pixel-art">
+                <img id="char-display-img" src="assets/images/hero_sprocket.jpg" alt="Selected Character Portrait">
+              </div>
+              <button class="pixel-btn pixel-btn-secondary char-audio-btn" id="char-voice-btn">
+                🔊 PLAY VOICE BLIP
+              </button>
+            </div>
+
+            <div class="char-bio-box">
+              <div class="char-header-meta">
+                <div>
+                  <h3 class="char-name" id="char-display-name">Sprocket</h3>
+                  <span class="char-title-tag" id="char-display-title">The Brass Wanderer • Model Atom-7</span>
+                </div>
+              </div>
+
+              <p class="char-lore-text" id="char-display-bio">
+                Created in the secret laboratories of District 03, Sprocket was fitted with the fabled Starlight Core rather than an ordinary steam condenser. Possessing boundless courage, retro rocket boots, and an ancient energy blade, he ventures into the sky to uncover why the great clockwork engines are falling silent.
+              </p>
+
+              <!-- Attribute Radar / Gauges -->
+              <div class="char-stats-grid">
+                <div class="gauge-wrapper">
+                  <div class="gauge-header">
+                    <span>ATTACK POWER</span>
+                    <span id="stat-atk-val">88/100</span>
+                  </div>
+                  <div class="gauge-bar-outer">
+                    <div class="gauge-bar-fill hp" id="stat-atk-fill" style="width: 88%;"></div>
+                  </div>
+                </div>
+
+                <div class="gauge-wrapper">
+                  <div class="gauge-header">
+                    <span>DEFENSE PLATING</span>
+                    <span id="stat-def-val">76/100</span>
+                  </div>
+                  <div class="gauge-bar-outer">
+                    <div class="gauge-bar-fill hp" id="stat-def-fill" style="width: 76%;"></div>
+                  </div>
+                </div>
+
+                <div class="gauge-wrapper">
+                  <div class="gauge-header">
+                    <span>STEAM CAPACITY</span>
+                    <span id="stat-steam-val">90%</span>
+                  </div>
+                  <div class="gauge-bar-outer">
+                    <div class="gauge-bar-fill steam" id="stat-steam-fill" style="width: 90%;"></div>
+                  </div>
+                </div>
+
+                <div class="gauge-wrapper">
+                  <div class="gauge-header">
+                    <span>EMOTION SYNC</span>
+                    <span id="stat-sync-val">98%</span>
+                  </div>
+                  <div class="gauge-bar-outer">
+                    <div class="gauge-bar-fill sync" id="stat-sync-fill" style="width: 98%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Signature Skills -->
+              <div class="char-skills-box">
+                <span class="skills-label">SIGNATURE COMBAT MODULES:</span>
+                <div class="skills-tags" id="char-display-skills">
+                  <span class="skill-pill">⚙️ Rocket Surge</span>
+                  <span class="skill-pill">⚙️ Steam Slash</span>
+                  <span class="skill-pill">⚙️ Starlight Overdrive</span>
+                  <span class="skill-pill">⚙️ Chrono Dash</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYABLE IN-BROWSER COMBAT SIMULATOR -->
+    <section class="section" id="combat-demo">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span> LIVE WEB DEMO
+          </div>
+          <h2 class="section-title">INTERACTIVE <span class="highlight">BATTLE SIMULATOR</span></h2>
+          <p class="section-subtitle">
+            Experience the tactical turn-based battle engine right in your browser! Issue commands to Sprocket, Electra, and Prof. Gear to dismantle the Clockwork Boss.
+          </p>
+        </div>
+
+        <div class="battle-demo-wrapper" id="battle-demo-wrapper">
+          <!-- Top Visual Screen Area -->
+          <div class="battle-screen-canvas-area pixel-art" id="battle-canvas-area">
+            <img class="battle-bg-image" src="assets/images/gameplay_battle.jpg" alt="In-Game Turn-Based Battle Preview">
+
+            <!-- Floating In-Game HUD Overlay -->
+            <div class="battle-hud-overlay">
+              <div class="battle-top-boss-hud">
+                <div class="boss-name-row">
+                  <span>FINAL BOSS: KRONOS MK. III</span>
+                  <span id="boss-hp-text">2400 / 2400</span>
+                </div>
+                <div class="gauge-bar-outer">
+                  <div class="gauge-bar-fill boss-hp" id="boss-hp-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <span class="hero-badge" id="turn-counter-badge">TURN 1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Tactical Command Console -->
+          <div class="battle-control-console">
+            <!-- Left: Party Status Cards -->
+            <div class="party-status-col">
+              <!-- Sprocket -->
+              <div class="party-char-card" id="party-card-sprocket">
+                <div class="party-char-name">SPROCKET (Vanguard)</div>
+                <div class="gauge-wrapper">
+                  <div class="gauge-header"><span>HP</span><span id="sprocket-hp-text">450/450</span></div>
+                  <div class="gauge-bar-outer"><div class="gauge-bar-fill hp" id="sprocket-hp-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="gauge-wrapper">
+                  <div class="gauge-header"><span>STEAM</span><span id="sprocket-steam-text">80%</span></div>
+                  <div class="gauge-bar-outer"><div class="gauge-bar-fill steam" id="sprocket-steam-fill" style="width: 80%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Electra -->
+              <div class="party-char-card" id="party-card-electra">
+                <div class="party-char-name">ELECTRA (Tesla Mage)</div>
+                <div class="gauge-wrapper">
+                  <div class="gauge-header"><span>HP</span><span id="electra-hp-text">380/380</span></div>
+                  <div class="gauge-bar-outer"><div class="gauge-bar-fill hp" id="electra-hp-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="gauge-wrapper">
+                  <div class="gauge-header"><span>STEAM</span><span id="electra-steam-text">65%</span></div>
+                  <div class="gauge-bar-outer"><div class="gauge-bar-fill steam" id="electra-steam-fill" style="width: 65%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Prof Gear -->
+              <div class="party-char-card" id="party-card-prof_gear">
+                <div class="party-char-name">PROF. GEAR (Artificer)</div>
+                <div class="gauge-wrapper">
+                  <div class="gauge-header"><span>HP</span><span id="prof_gear-hp-text">410/410</span></div>
+                  <div class="gauge-bar-outer"><div class="gauge-bar-fill hp" id="prof_gear-hp-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="gauge-wrapper">
+                  <div class="gauge-header"><span>STEAM</span><span id="prof_gear-steam-text">70%</span></div>
+                  <div class="gauge-bar-outer"><div class="gauge-bar-fill steam" id="prof_gear-steam-fill" style="width: 70%;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Command Bar & Combat Log -->
+            <div class="commands-col">
+              <div class="command-buttons-grid">
+                <button class="pixel-btn cmd-btn" id="cmd-btn-slash">⚔️ STEAM SLASH</button>
+                <button class="pixel-btn pixel-btn-cyan cmd-btn" id="cmd-btn-tesla">⚡ TESLA ARC</button>
+                <button class="pixel-btn pixel-btn-secondary cmd-btn" id="cmd-btn-buff">🔧 OVERCLOCK</button>
+                <button class="pixel-btn pixel-btn-secondary cmd-btn" id="cmd-btn-heal">🧪 REPAIR VALVE</button>
+              </div>
+              <button class="pixel-btn" id="cmd-btn-synergy" style="width: 100%; background: linear-gradient(90deg, #e2a84b, #c86432);">
+                💥 GRAND SYNERGY BURST (COMBO)
+              </button>
+              <button class="pixel-btn pixel-btn-cyan" id="cmd-btn-reset" style="display: none; width: 100%;">
+                🔄 RESTART BATTLE
+              </button>
+
+              <!-- Combat Log -->
+              <div class="battle-log-ticker">
+                <span id="battle-log-text">⚔️ Encounter Start! Boss: KRONOS MK. III. Choose your command.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORLD ATLAS & LORE MAP -->
+    <section class="section" id="world-map">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span> REGIONAL ATLAS
+          </div>
+          <h2 class="section-title">THE FLOATING <span class="highlight">DISTRICTS</span></h2>
+          <p class="section-subtitle">
+            Click on any district to inspect high-resolution surveillance archives and discovered regional secrets.
+          </p>
+        </div>
+
+        <div class="world-atlas-grid">
+          <!-- Left: Preview Frame -->
+          <div class="world-map-preview-frame pixel-art">
+            <img id="world-map-img" src="assets/images/world_exploration.jpg" alt="World Region Preview">
+          </div>
+
+          <!-- Right: District Selectors & Lore -->
+          <div class="world-hubs-list">
+            <div class="world-hub-item active" data-hub="plaza">
+              <h3 class="hub-name">The Grand Clocktower Plaza</h3>
+              <p class="hub-desc">District 01 • The bustling economic nexus filled with steam cafes, retro robot merchants, and cable trams.</p>
+            </div>
+
+            <div class="world-hub-item" data-hub="airships">
+              <h3 class="hub-name">The Steam-Docks & Sky Flotilla</h3>
+              <p class="hub-desc">District 02 • High-altitude mooring berths for giant solar zeppelins navigating uncharted cloud seas.</p>
+            </div>
+
+            <div class="world-hub-item" data-hub="foundry">
+              <h3 class="hub-name">The Pneumatic Foundry & Core Labs</h3>
+              <p class="hub-desc">District 03 • Industrial heavy factories where Tezuka-class android frames and boiler armors are forged.</p>
+            </div>
+
+            <div class="world-hub-item" data-hub="caverns">
+              <h3 class="hub-name">The Sunken Gear Ruins</h3>
+              <p class="hub-desc">District 00 • Ancient subterranean chasms housing the forgotten primordial titanic clockwork engines.</p>
+            </div>
+
+            <!-- Dynamic Secrets Box -->
+            <div class="dialog-box" style="margin-top: 10px;">
+              <div class="dialog-speaker" id="world-hub-tag">DISTRICT 01 • COMMERCIAL HUB</div>
+              <p id="world-hub-desc" style="margin-bottom: 8px;">
+                The beating heart of Gearhaven where steam cable trams glide overhead and brass automatons trade exotic goods from the skyward flotillas.
+              </p>
+              <div style="font-size: 0.8rem; color: var(--steam-cyan); margin-bottom: 4px;">DISCOVERABLE SECRETS:</div>
+              <ul id="world-hub-secrets" style="list-style: none; font-size: 0.85rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 4px;">
+                <li>▸ Secret Pneumatic Tube behind the Baker's Automaton</li>
+                <li>▸ Old Clockmaker's Hidden Workshop</li>
+                <li>▸ Underground Steam Pipe Passage</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA GALLERY & SCREENSHOTS -->
+    <section class="section" id="gallery" style="background: rgba(18, 22, 32, 0.4);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span> ARCHIVES
+          </div>
+          <h2 class="section-title">PIXEL ART <span class="highlight">GALLERY</span></h2>
+          <p class="section-subtitle">
+            Explore official 16-bit key art, in-engine tactical combat screenshots, and boss encounters.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="gallery-filter-tabs">
+          <button class="filter-btn active" data-filter="all">ALL ARCHIVES</button>
+          <button class="filter-btn" data-filter="keyart">KEY ART</button>
+          <button class="filter-btn" data-filter="battle">BATTLE SCREENS</button>
+          <button class="filter-btn" data-filter="world">EXPLORATION</button>
+          <button class="filter-btn" data-filter="boss">BOSS TITANS</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+          <div class="gallery-card pixel-art" data-category="keyart">
+            <img src="assets/images/hero_key_art.jpg" alt="Gearhaven Key Art">
+            <div class="gallery-card-caption">Skyward Bound Key Visual</div>
+          </div>
+
+          <div class="gallery-card pixel-art" data-category="battle">
+            <img src="assets/images/gameplay_battle.jpg" alt="Dragon Boss Battle">
+            <div class="gallery-card-caption">Airship Deck Tactical Combat</div>
+          </div>
+
+          <div class="gallery-card pixel-art" data-category="world">
+            <img src="assets/images/world_exploration.jpg" alt="Metropolis Plaza">
+            <div class="gallery-card-caption">District 01: Clocktower Plaza</div>
+          </div>
+
+          <div class="gallery-card pixel-art" data-category="boss">
+            <img src="assets/images/boss_encounter.jpg" alt="Kronos Mk. III Titan Boss">
+            <div class="gallery-card-caption">Encounter: Titan Kronos Mk. III</div>
+          </div>
+
+          <div class="gallery-card pixel-art" data-category="keyart">
+            <img src="assets/images/hero_sprocket.jpg" alt="Sprocket Portrait">
+            <div class="gallery-card-caption">Sprocket (Model Atom-7)</div>
+          </div>
+
+          <div class="gallery-card pixel-art" data-category="keyart">
+            <img src="assets/images/hero_electra.jpg" alt="Electra Portrait">
+            <div class="gallery-card-caption">Electra (Model Volt-9)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVELOPMENT ROADMAP & DEVLOG -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span> PRODUCTION ROADMAP
+          </div>
+          <h2 class="section-title">FLIGHT TO <span class="highlight">RELEASE</span></h2>
+          <p class="section-subtitle">
+            Follow our open development journey as we build and polish Gearhaven.
+          </p>
+        </div>
+
+        <div class="roadmap-timeline">
+          <!-- Phase 1 -->
+          <div class="roadmap-card completed">
+            <span class="phase-tag">PHASE 01 • COMPLETED</span>
+            <h3 class="roadmap-title">Core Engine & Prototype</h3>
+            <ul class="roadmap-items">
+              <li>16-Bit HD-2D Custom Pixel Pipeline</li>
+              <li>Procedural Web Audio Synthesizer</li>
+              <li>Turn-Based Steam Pressure Battle Math</li>
+              <li>Tezuka Character Art Direction</li>
+            </ul>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="roadmap-card current">
+            <span class="phase-tag">PHASE 02 • IN PROGRESS</span>
+            <h3 class="roadmap-title">Closed Alpha Playtest</h3>
+            <ul class="roadmap-items">
+              <li>First 3 Floating Sky Districts Built</li>
+              <li>Party Synergy Combo Animations</li>
+              <li>Dialogue Engine with Automaton NPCs</li>
+              <li>Boss Titan Kronos Mechanics Tuning</li>
+            </ul>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="roadmap-card">
+            <span class="phase-tag">PHASE 03 • Q2 2026</span>
+            <h3 class="roadmap-title">Steam Next Fest Demo</h3>
+            <ul class="roadmap-items">
+              <li>Public Playable Demo on Steam</li>
+              <li>Full English & Japanese Localization</li>
+              <li>Steam Deck Verification Optimization</li>
+              <li>Relic & Cog Synthesis Crafting</li>
+            </ul>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="roadmap-card">
+            <span class="phase-tag">PHASE 04 • Q4 2026</span>
+            <h3 class="roadmap-title">Global Multi-Platform Launch</h3>
+            <ul class="roadmap-items">
+              <li>Worldwide Release on PC & Consoles</li>
+              <li>Original Soundtrack Vinyl Release</li>
+              <li>Post-Launch Airship Expansion DLC</li>
+              <li>Physical Collector's Brass Box Edition</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER & COMMUNITY DISPATCH -->
+    <section class="section" id="wishlist" style="background: linear-gradient(180deg, var(--bg-deep) 0%, #0d1017 100%);">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="section-tag">
+            <span class="tag-dot"></span> THE COG UNION TELEGRAPH
+          </div>
+          <h2 class="section-title">JOIN THE <span class="highlight">SKYWARD DISPATCH</span></h2>
+          <p class="section-subtitle" style="margin-top: 10px;">
+            Subscribe for closed beta invites, exclusive pixel wallpapers, and unlock the in-game <strong>"Golden Sprocket"</strong> chassis skin on launch day!
+          </p>
+
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="pixel-input" id="newsletter-email" placeholder="Enter your telegraph email address..." required>
+            <button type="submit" class="pixel-btn pixel-btn-cyan">
+              ⚡ TRANSMIT
+            </button>
+          </form>
+
+          <div class="newsletter-success-msg" id="newsletter-success"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightbox-close">✕ CLOSE</button>
+      <div class="lightbox-img-frame pixel-art">
+        <img id="lightbox-img" src="" alt="High-Res Gallery Preview">
+      </div>
+      <div class="lightbox-caption-bar" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">GEARHAVEN: SKYWARD BOUND</span>
+              <span class="brand-sub">EST. 2026 • INDIE RPG STUDIOS</span>
+            </div>
+          </div>
+          <p>
+            An indie high-fantasy steampunk tribute to Osamu Tezuka retro-futurism and 90s turn-based JRPG masterpieces.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>NAVIGATION</h4>
+          <ul>
+            <li><a href="#overview">Overview & Lore</a></li>
+            <li><a href="#features">Gameplay Pillars</a></li>
+            <li><a href="#characters">Android Roster</a></li>
+            <li><a href="#combat-demo">Playable Battle Demo</a></li>
+            <li><a href="#gallery">Media Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>COMMUNITY & PRESS</h4>
+          <ul>
+            <li><a href="#wishlist">Steam Community Hub</a></li>
+            <li><a href="#wishlist">Discord Automaton Guild</a></li>
+            <li><a href="#wishlist">Press Kit & Brand Assets</a></li>
+            <li><a href="#wishlist">Privacy & Terms</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 Gearhaven Game Studios. All rights reserved.</span>
+        <span>Built with pure HTML5, Vanilla CSS3, Web Audio API & AI Pixel Art.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/audio.js"></script>
+  <script src="scripts/combat-demo.js"></script>
+  <script src="scripts/map-explorer.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

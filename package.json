@@ -1,0 +1,19 @@
+{
+  "name": "gearhaven-skyward-bound-website",
+  "version": "1.0.0",
+  "description": "Official showcase website for 2D Steampunk Tezuka-inspired RPG Gearhaven: Skyward Bound",
+  "main": "start-server.js",
+  "scripts": {
+    "start": "node start-server.js",
+    "dev": "node start-server.js"
+  },
+  "keywords": [
+    "pixel-art",
+    "jrpg",
+    "steampunk",
+    "tezuka",
+    "game-website"
+  ],
+  "author": "Gearhaven Studios",
+  "license": "MIT"
+}
